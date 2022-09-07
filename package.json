@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "serverless offline"
+    "dev": "serverless offline",
+    "deploy": "serverless deploy --verbose"
   },
   "keywords": [],
   "author": "",
@@ -26,8 +27,10 @@
   "dependencies": {
     "apollo-server-lambda": "^3.10.2",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
+    "serverless-cors-plugin": "^0.4.2",
     "serverless-dotenv-plugin": "^4.0.2"
   }
 }

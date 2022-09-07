@@ -10,13 +10,14 @@ export const loginUserController = async (email: string, password: string) => {
   if (!user) return { message: "Email dosent exist", statusCode: 401 };
 
   const match = await comparePasswords(user.password, password);
+  console.log({ match, password });
 
   if (!match) return { message: "Password dosent match", statusCode: 401 };
 
   const token = generateToken(user);
 
   return {
-    message: "User logged successfully",
+    message: "User logged successfully in serverless",
     statusCode: 200,
     user: { email, id: user.id },
     token,

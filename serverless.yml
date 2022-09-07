@@ -1,33 +1,32 @@
-service: pickup
+service: pickup-serverless
 
 provider:
   name: aws
   runtime: nodejs14.x
   region: eu-west-1
+  stage: dev
 
 useDotenv: true
 
 functions:
   graphql:
     handler: src/index.handler
-    name: graphql
+    name: graphql-serverless
     events:
       - http:
           path: /graphql
           method: POST
-          cors: true
       - http:
           path: /graphql
           method: GET
-          cors: true
-  loginUser:
+
+  signinUser:
     handler: src/functions/auth/loginUser.loginUser
-    name: loginUser
+    name: signinUser
     events:
       - http:
           path: /loginUser
           method: POST
-          cors: true
 
 plugins:
   - serverless-offline
