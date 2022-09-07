@@ -8,7 +8,11 @@ export const loginUser: APIGatewayProxyHandler = async (e) => {
     statusCode: 200,
     body: JSON.stringify(res),
     headers: {
+      "Access-Control-Allow-Headers": "*",
       "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+      "Accept": "*/*",
+      "Content-Type": "application/json",
     },
   };
 };
