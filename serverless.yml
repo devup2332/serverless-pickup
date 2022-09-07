@@ -27,7 +27,18 @@ functions:
       - http:
           path: /loginUser
           method: POST
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - id-client
+            allowCredentials: false
+
 plugins:
   - serverless-offline
   - serverless-esbuild
