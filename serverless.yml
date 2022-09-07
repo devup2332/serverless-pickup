@@ -27,7 +27,7 @@ functions:
       - http:
           path: /loginUser
           method: POST
-
+          cors: true
 plugins:
   - serverless-offline
   - serverless-esbuild

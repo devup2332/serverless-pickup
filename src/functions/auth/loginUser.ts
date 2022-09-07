@@ -11,7 +11,8 @@ export const loginUser: APIGatewayProxyHandler = async (e) => {
       "Access-Control-Allow-Headers": "*",
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "*",
-      "Accept": "*/*",
+      "Access-Control-Allow-Credentials": true,
+      Accept: "*/*",
       "Content-Type": "application/json",
     },
   };
