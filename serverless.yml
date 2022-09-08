@@ -23,12 +23,20 @@ functions:
           cors: true
 
   signinUser:
-    handler: src/functions/auth/loginUser.loginUser
+    handler: src/functions/auth/signinUser.signinUser
     name: signinUser
     events:
       - http:
-          path: /loginUser
+          path: /signinUser
           method: POST
+          cors: true
+  getUsers:
+    handler: src/functions/auth/getUsers.getUsers
+    name: getUsers 
+    events:
+      - http:
+          path: /getUsers
+          method: GET 
           cors: true
 
 plugins:
