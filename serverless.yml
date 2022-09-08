@@ -16,9 +16,11 @@ functions:
       - http:
           path: /graphql
           method: POST
+          cors: true
       - http:
           path: /graphql
           method: GET
+          cors: true
 
   signinUser:
     handler: src/functions/auth/loginUser.loginUser
@@ -27,17 +29,7 @@ functions:
       - http:
           path: /loginUser
           method: POST
-          cors:
-            origin: '*'
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-              - id-client
-            allowCredentials: false
+          cors: true
 
 plugins:
   - serverless-offline
