@@ -3,7 +3,7 @@ service: pickup-serverless
 provider:
   name: aws
   runtime: nodejs14.x
-  region: eu-west-1
+  region: us-east-1
   stage: dev
 
 useDotenv: true
@@ -11,7 +11,7 @@ useDotenv: true
 functions:
   graphql:
     handler: src/index.handler
-    name: graphql-serverless
+    name: graphql
     events:
       - http:
           path: /graphql
@@ -32,11 +32,11 @@ functions:
           cors: true
   getUsers:
     handler: src/functions/auth/getUsers.getUsers
-    name: getUsers 
+    name: getUsers
     events:
       - http:
           path: /getUsers
-          method: GET 
+          method: GET
           cors: true
 
 plugins:
@@ -46,7 +46,10 @@ plugins:
 
 custom:
   esbuild:
-    bundle: true
-    minify: true
+    external:
+      - "prisma"
   serverless-offline:
     httpPort: 4000
+package:
+  patterns:
+    - "prisma/**"

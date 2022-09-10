@@ -5,15 +5,26 @@ const typeDefs = gql`
     id: ID!
     email: String!
     password: String!
-    createdAt: String!
+    firstName: String!
+    lastName: String!
+    phone: String!
+    updatedAt: String
+    createdAt: String
   }
 
+  input NewUserInput {
+    email: String!
+    password: String!
+    phone: String!
+    firstName: String!
+    lastName: String!
+  }
   type Query {
     getUsers: [User]
   }
 
   type Mutation {
-    registerUser(email: String, password: String): User!
+    registerUser(newUser: NewUserInput): User!
   }
 
   type Image {

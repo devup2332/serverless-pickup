@@ -1,16 +1,16 @@
-import { db } from "../../../database/connection";
+import { prisma } from "../../../database/connection";
 import { comparePasswords } from "../../../utils/auth/comparePasswords";
 import { generateToken } from "../../../utils/auth/generateToken";
 
-export const loginUserController = async (email: string, password: string) => {
-  const res = (await db.query("SELECT * FROM users WHERE email=?", [
-    email,
-  ])) as any;
-  const user = res[0][0];
+export const signinUserController = async (email: string, password: string) => {
+  const user = await prisma.user.findFirst({
+    where: {
+      email,
+    },
+  });
   if (!user) return { message: "Email dosent exist", statusCode: 401 };
 
   const match = await comparePasswords(user.password, password);
-  console.log({ match, password });
 
   if (!match) return { message: "Password dosent match", statusCode: 401 };
 

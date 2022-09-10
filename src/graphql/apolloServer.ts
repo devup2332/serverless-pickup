@@ -6,6 +6,4 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-
-export default server
-
+export default server;
