@@ -40,16 +40,16 @@ functions:
           cors: true
 
 plugins:
-  - serverless-offline
-  - serverless-esbuild
   - serverless-dotenv-plugin
+  - serverless-esbuild
+  - serverless-offline
 
 custom:
-  esbuild:
-    external:
-      - "prisma"
   serverless-offline:
     httpPort: 4000
 package:
   patterns:
-    - "prisma/**"
+    - "node_modules/.prisma/**"
+    - "node_modules/@prisma/**"
+    - 'prisma/**'
+

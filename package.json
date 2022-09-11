@@ -5,44 +5,34 @@
   "main": "index.js",
   "scripts": {
     "dev": "serverless offline",
-    "deploy": "serverless deploy --verbose"
-  },
-  "prisma": {
-    "schema": "prisma/schema.prisma"
+    "deploy": "serverless deploy --verbose",
+    "build": "tsc && cp -r prisma/ build/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.102",
-    "@types/bcrypt": "^5.0.0",
     "@types/bcryptjs": "^2.4.2",
-    "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.9",
     "@types/node": "^18.7.16",
     "@types/uuid": "^8.3.4",
     "esbuild": "^0.15.6",
-    "express": "^4.18.1",
     "mysql2": "^2.3.3",
     "serverless": "^3.22.0",
     "serverless-esbuild": "^1.32.8",
-    "serverless-offline": "^9.3.1",
-    "serverless-webpack": "^5.9.1",
-    "serverless-webpack-prisma": "^1.1.0",
+    "serverless-offline": "^10.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.8.3",
     "uuid": "^8.3.2"
   },
   "dependencies": {
-    "prisma": "^4.3.1",
     "@prisma/client": "4.3.1",
     "apollo-server-lambda": "^3.10.2",
     "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
     "graphql": "^16.6.0",
     "jsonwebtoken": "^8.5.1",
-    "serverless-cors-plugin": "^0.4.2",
-    "serverless-dotenv-plugin": "^4.0.2",
-    "webpack": "^5.74.0"
+    "prisma": "^4.3.1",
+    "serverless-dotenv-plugin": "^4.0.2"
   }
 }
